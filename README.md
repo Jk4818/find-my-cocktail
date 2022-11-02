@@ -1,12 +1,12 @@
 # https://iamjkeung.studio/ ¬ Find My Cocktail
 
-![Web Demo](https://firebasestorage.googleapis.com/v0/b/jkeung2022.appspot.com/o/personal_demo.gif?alt=media&token=25720427-b503-4fab-93fe-4e6904ff0835)
+![Web Demo](https://firebasestorage.googleapis.com/v0/b/find-my-cocktail.appspot.com/o/Github%2Fgithub-thumb.png?alt=media&token=aa589395-4d1e-4077-94b6-a16b83697567)
 
-Welcome to the github repo holding the development of my personal site. 
-This site showcases my films, reels, photography and mixing mastering services.
+Welcome to Find My Cocktail. 
+This site provides easy access to cocktail definitions and basic recipes.
 
  - Designed personally using Figma.
- - Created in Javascript via React.JS, deployed via Gatsby.
+ - Created in Typescript via React.JS, deployed via Firebase.
  - Animations made using CSS and Framer Motion.
 
 **Notable work:**
@@ -19,5 +19,5 @@ This site showcases my films, reels, photography and mixing mastering services.
 
 # Stack
 
-Front-End is built on React and tailwind.
+Front-End is built on React and pure CSS.
 Back-end storage handled via Firestore, deployed using Gatsby.
