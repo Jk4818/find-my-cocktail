@@ -1,0 +1,15 @@
+
+.Search-bar{
+  background-color: #fff;
+  border-radius: 0.5rem;
+  width: 20rem;
+  height: 2rem;
+  
+  display: flex;
+  align-items: center;
+
+  padding: 0.2rem;
+
+
+  box-shadow: 0 0 37px rgb(0 0 0);
+}
