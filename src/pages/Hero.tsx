@@ -7,6 +7,7 @@ import Title from "../components/Title";
 import Logo from "../assets/images/logo.png";
 
 import SearchCard from "../components/SearchCard";
+import LoadingIcon from "../components/LoadingIcon";
 
 function Hero() {
   return (
@@ -27,6 +28,8 @@ function Hero() {
       <div className="w-[35rem]">
         <SearchCard />
       </div>
+
+      <LoadingIcon />
     </div>
   );
 }

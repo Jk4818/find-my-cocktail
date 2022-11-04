@@ -25,8 +25,7 @@ function ListCard() {
             Rum
           </li>
 
-          <TiChevronRight className="text-2xl ml-auto  group-hover:animate-bounce-x
- transition-all"/>
+          <TiChevronRight className="text-2xl ml-auto  group-hover:animate-bounce-x transition-all"/>
         </ul>
       </div>
     </div>
