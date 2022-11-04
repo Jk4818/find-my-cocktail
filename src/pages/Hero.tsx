@@ -1,12 +1,14 @@
-import React from 'react';
-import ListCard from '../components/ListCard';
+import React from "react";
+import BlobAnimation from "../components/BlobAnimation";
+import ListCard from "../components/ListCard";
 
-import SearchBar from '../components/SearchBar';
-import Title from '../components/Title';
+import SearchBar from "../components/SearchBar";
+import Title from "../components/Title";
 
 function Hero() {
   return (
-    <div>
+    <div className="relative">
+      <BlobAnimation />
       <Title />
       <SearchBar />
       <ListCard />
