@@ -48,7 +48,7 @@ function BlobAnimation() {
 
   return (
     <div className="absolute h-screen w-screen">
-      <div className="absolute top-0 left-0 w-96 h-96 animate-blob mix-blend-multiply filter blur-xl">
+      <div className="absolute top-0 bottom-0 my-auto left-0 right-0 mx-auto w-96 h-96 animate-blob mix-blend-multiply filter blur-xl">
         {blobTypes[0].blob}
       </div>
 

@@ -11,7 +11,7 @@ function ListCard() {
           <img
             src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview"
             alt="new"
-            className="w-full h-full rounded-xl object-cover"
+            className="w-full h-full rounded-xl object-cover drop-shadow-main"
           />
         </div>
         <h1 className="font-extrabold">Mojito</h1>
