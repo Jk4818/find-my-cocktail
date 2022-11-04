@@ -31,6 +31,7 @@ function Title() {
           transition={transition}
         />
       </svg>
+      
     </div>
   );
 }

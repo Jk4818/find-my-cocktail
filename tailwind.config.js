@@ -7,6 +7,8 @@ module.exports = {
     extend: {
       fontFamily: {
         raleway: ["Raleway", "sans-serif"],
+        merriweather: ["Merriweather ", "serif"],
+        "roboto-mono": ["Roboto Mono", "monospace"],
       },
       dropShadow: {
         'main': [

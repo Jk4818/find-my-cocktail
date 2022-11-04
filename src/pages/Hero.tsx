@@ -8,6 +8,8 @@ import Logo from "../assets/images/logo.png";
 
 import SearchCard from "../components/SearchCard";
 import LoadingIcon from "../components/LoadingIcon";
+import Footer from "../components/Footer";
+import Product from "./Product";
 
 function Hero() {
   return (
@@ -30,6 +32,10 @@ function Hero() {
       </div>
 
       <LoadingIcon />
+
+      <Footer />
+
+      <Product />
     </div>
   );
 }
