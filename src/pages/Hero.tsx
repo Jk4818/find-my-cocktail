@@ -6,6 +6,8 @@ import SearchBar from "../components/SearchBar";
 import Title from "../components/Title";
 import Logo from "../assets/images/logo.png";
 
+import SearchCard from "../components/SearchCard";
+
 function Hero() {
   return (
     <div className="relative">
@@ -13,12 +15,17 @@ function Hero() {
       <Title />
       <SearchBar />
       <ListCard />
-      <div className="w-12 aspect-square">
+      <div className="w-60 h-12 flex items-center gap-2">
         <img
           src={Logo}
           alt="new"
-          className="w-full h-full mix-blend-multiply rounded-xl object-cover animate-ring"
+          className="h-full aspect-square mix-blend-multiply rounded-xl object-cover animate-ring"
         />
+        <h1 className="font-raleway font-black">Find My Cocktail</h1>
+      </div>
+
+      <div className="w-[35rem]">
+        <SearchCard />
       </div>
     </div>
   );

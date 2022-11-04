@@ -17,7 +17,7 @@ function Title() {
         viewBox="0 0 91 21"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute top-24 right-16"
+        className="absolute top-20 right-16"
 
       >
         <motion.path
