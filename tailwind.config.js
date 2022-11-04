@@ -17,7 +17,8 @@ module.exports = {
         'web-gray': '#787878'
       },
       animation: {
-        blob: "blob 20s infinite"
+        blob: "blob 20s infinite",
+        "bounce-x": "bounce-x 1s infinite"
       },
       keyframes: {
         blob: {
@@ -25,7 +26,7 @@ module.exports = {
           "20%":  { transform: "scale(0.8, 1) translate(30px, 0px) rotate(160deg)" },
           "78%":  { transform: "scale(1.3) translate(0vw, 40px) rotate(-20deg)" },
           "100%": { transform: "scale(1)   translate(10px, -30px)" },
-        }
+        },
       }
     },
   },
