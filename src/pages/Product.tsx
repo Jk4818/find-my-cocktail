@@ -1,6 +1,77 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 function Product() {
+  const [cocktailData, setCocktailData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [cocktailId, setCocktailId] = useState("11001");
+
+  interface Cocktail {
+    idDrink: string;
+    strDrink: string;
+    strDrinkThumb: string;
+    strCategory: string;
+    strAlcoholic: string;
+    strGlass: string;
+    strTags: string;
+    strInstructions: string;
+    strIngredient1: string;
+    strIngredient2: string;
+    strIngredient3: string;
+    strIngredient4: string;
+    strIngredient5: string;
+    strIngredient6: string;
+    strIngredient7: string;
+    strIngredient8: string;
+    strIngredient9: string;
+    strIngredient10: string;
+    strIngredient11: string;
+    strIngredient12: string;
+    strIngredient13: string;
+    strIngredient14: string;
+    strIngredient15: string;
+    strMeasure1: string;
+    strMeasure2: string;
+    strMeasure3: string;
+    strMeasure4: string;
+    strMeasure5: string;
+    strMeasure6: string;
+    strMeasure7: string;
+    strMeasure8: string;
+    strMeasure9: string;
+    strMeasure10: string;
+    strMeasure11: string;
+    strMeasure12: string;
+    strMeasure13: string;
+    strMeasure14: string;
+    strMeasure15: string;
+
+    strCreativeCommonsConfirmed: string;
+    dateModified: string;
+
+
+  }
+  
+  useEffect(() => {
+    function getProduct() {
+      setLoading(true);
+      fetch(
+        `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailId}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setCocktailData(data);
+          console.log(data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(false);
+        });
+    }
+
+    getProduct();
+  }, []);
+
   return (
     <div className="relative w-screen h-screen flex justify-center">
       <div className="relative w-[30rem] h-full">
@@ -12,9 +83,12 @@ function Product() {
           />
         </div>
 
-        <div className="absolute left-0 right-0 mx-auto bottom-0 w-11/12 h-[30rem] p-10 flex flex-col text-left font-raleway bg-red-400 rounded-t-3xl drop-shadow-main bg-opacity-70">
+        <div className="absolute left-0 right-0 mx-auto bottom-0 w-11/12 h-[30rem] p-10 flex flex-col text-left font-raleway bg-red-400 rounded-t-3xl drop-shadow-main bg-opacocktail-70">
           <h1 className="font-bold font-merriweather text-3xl">
-            Old Fashioned
+            {
+              cocktailData.length > 0 ? cocktailData.map((cocktail: Cocktail) => 
+                (cocktail.strDrink)) : ("Loading...")
+            }
           </h1>
           <h2 className="text-sm text-web-gray">Old-fashioned Glass</h2>
 

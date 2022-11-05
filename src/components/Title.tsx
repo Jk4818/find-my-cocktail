@@ -23,8 +23,8 @@ function Title() {
         <motion.path
           d="M4 4C21.2148 13.8101 61.9156 27.5443 87 4"
           stroke="black"
-          stroke-width="7"
-          stroke-linecap="round"
+          strokeWidth="7"
+          strokeLinecap="round"
         
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
