@@ -2,9 +2,10 @@ import React from "react";
 
 function Product() {
   return (
-    <div className="relative w-screen h-screen">
-      <div className="w-[30rem]">
-        <div className="mx-auto -mt-14 w-full aspect-square">
+    <div className="relative w-screen h-screen flex justify-center">
+      <div className="relative w-[30rem] h-full">
+
+        <div className="mt-20 w-full aspect-square">
           <img
             src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview"
             alt="new"
@@ -12,10 +13,15 @@ function Product() {
           />
         </div>
 
-        <div className="w-full h-[60rem] p-10 flex flex-col text-left font-raleway bg-red-400 rounded-3xl drop-shadow-main bg-opacity-70">
+        <div className="absolute left-0 right-0 mx-auto bottom-0 w-11/12 h-[30rem] p-10 flex flex-col text-left font-raleway bg-red-400 rounded-t-3xl drop-shadow-main bg-opacity-70">
           <h1 className="font-bold font-merriweather text-3xl">Old Fashioned</h1>
           <h2 className="text-sm text-web-gray">Old-fashioned Glass</h2>
 
+          <ul className="list-disc list-inside text-web-gray text-xs">
+            <li> 4.5cL Bourbon</li>
+          </ul>
+
+          <h3 className="font-raleway font-bold text-xl">Ingredients</h3>
           <ul className="list-disc list-inside text-web-gray text-xs">
             <li> 4.5cL Bourbon</li>
           </ul>
@@ -30,6 +36,8 @@ function Product() {
 
           </ul>
         </div>
+
+
       </div>
     </div>
   );
