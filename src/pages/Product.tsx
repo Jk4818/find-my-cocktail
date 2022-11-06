@@ -2,10 +2,6 @@ import React, { useState, useEffect } from "react";
 import Loader from "../components/Loader";
 
 function Product() {
-  const [cocktailData, setCocktailData] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [cocktailId, setCocktailId] = useState("11001");
-
   interface Cocktail {
     idDrink: string;
     strDrink: string;
@@ -51,6 +47,12 @@ function Product() {
 
 
   }
+  const [cocktailData, setCocktailData] = useState<any[]>();
+  const [loading, setLoading] = useState(true);
+  const [cocktailId, setCocktailId] = useState("11001");
+
+
+
   
   useEffect(() => {
     function getProduct() {
@@ -84,7 +86,7 @@ function Product() {
           />
         </div>
 
-        <div className="absolute left-0 right-0 mx-auto bottom-0 w-11/12 h-[30rem] p-10 flex flex-col text-left font-raleway bg-red-400 rounded-t-3xl drop-shadow-main bg-opacocktail-70">
+        <div className="absolute left-0 right-0 mx-auto bottom-0 w-11/12 h-[30rem] p-10 flex flex-col text-left font-raleway bg-white rounded-t-3xl drop-shadow-main opacity-70 backdrop-blur-3xl filter">
           <h1 className="font-bold font-merriweather text-3xl">
             {
               cocktailData.length > 0 ? cocktailData.map((cocktail: Cocktail) => 
