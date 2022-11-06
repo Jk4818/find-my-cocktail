@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Loader from "../components/Loader";
 
 function Product() {
   const [cocktailData, setCocktailData] = useState<any[]>([]);
@@ -87,7 +88,7 @@ function Product() {
           <h1 className="font-bold font-merriweather text-3xl">
             {
               cocktailData.length > 0 ? cocktailData.map((cocktail: Cocktail) => 
-                (cocktail.strDrink)) : ("Loading...")
+                (cocktail.strDrink)) : (<Loader />)
             }
           </h1>
           <h2 className="text-sm text-web-gray">Old-fashioned Glass</h2>
