@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import Loader from "../components/Loader";
 
 function Product() {
+  interface Drinks {
+    drinks: Array<Cocktail>;
+  }
   interface Cocktail {
     idDrink: string;
     strDrink: string;
@@ -44,16 +47,13 @@ function Product() {
 
     strCreativeCommonsConfirmed: string;
     dateModified: string;
-
-
   }
-  const [cocktailData, setCocktailData] = useState<any[]>();
+
+
+  const [cocktailData, setCocktailData] = useState<Drinks | undefined>();
   const [loading, setLoading] = useState(true);
   const [cocktailId, setCocktailId] = useState("11001");
 
-
-
-  
   useEffect(() => {
     function getProduct() {
       setLoading(true);
@@ -88,12 +88,11 @@ function Product() {
 
         <div className="absolute left-0 right-0 mx-auto bottom-0 w-11/12 h-[30rem] p-10 flex flex-col text-left font-raleway bg-white rounded-t-3xl drop-shadow-main opacity-70 backdrop-blur-3xl filter">
           <h1 className="font-bold font-merriweather text-3xl">
-            {
-              cocktailData.length > 0 ? cocktailData.map((cocktail: Cocktail) => 
-                (cocktail.strDrink)) : (<Loader />)
-            }
+            {cocktailData?.drinks?.[0].strDrink || <Loader/>}
           </h1>
-          <h2 className="text-sm text-web-gray">Old-fashioned Glass</h2>
+          <h2 className="text-sm text-web-gray">
+            {cocktailData?.drinks?.[0].strGlass || <Loader/>}
+          </h2>
 
           <ul className="my-4 list-disc ml-4  text-web-gray text-xs">
             <li>
