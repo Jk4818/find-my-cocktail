@@ -20,6 +20,7 @@ function Product() {
     strAlcoholic: string;
     strGlass: string;
     strTags: string;
+    strImageSource: string;
     strInstructions: string;
     strIngredient1: string;
     strIngredient2: string;
@@ -117,7 +118,7 @@ function Product() {
       <div className="relative w-[30rem] h-full">
         <div className="mt-20 w-full aspect-square">
           <img
-            src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview"
+            src={cocktailData?.drinks?.[0].strDrinkThumb}
             alt="new"
             className="w-full h-full rounded-3xl object-contain drop-shadow-main"
           />
