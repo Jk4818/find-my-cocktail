@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
+import Slider from "react-slick";
 import Loader from "../components/Loader";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "../styles/Slider.css";
 
 function Product() {
   interface Drinks {
@@ -48,11 +52,36 @@ function Product() {
     strCreativeCommonsConfirmed: string;
     dateModified: string;
   }
+  interface Ingredients {
+    ingredient: string;
+    measure: string;
+  }
 
+  var settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+  };
 
-  const [cocktailData, setCocktailData] = useState<Drinks | undefined>();
+  const [cocktailData, setCocktailData] = useState<Drinks>();
   const [loading, setLoading] = useState(true);
   const [cocktailId, setCocktailId] = useState("11001");
+  const [cocktailIngredients, setCocktailIngredients] = useState<Ingredients[]>(
+    []
+  );
+
+  function parseIngredients(cocktail: Cocktail) {
+    const ingredients = [];
+    for (let i = 1; i < 16; i++) {
+      const ingredient = cocktail[`strIngredient${i}` as keyof Cocktail];
+      const measure = cocktail[`strMeasure${i}` as keyof Cocktail];
+      if (ingredient) {
+        ingredients.push({ ingredient, measure });
+      }
+    }
+    setCocktailIngredients(ingredients);
+  }
 
   useEffect(() => {
     function getProduct() {
@@ -64,6 +93,7 @@ function Product() {
         .then((data) => {
           setCocktailData(data);
           console.log(data);
+          parseIngredients(data.drinks[0]);
           setLoading(false);
         })
         .catch((err) => {
@@ -82,45 +112,67 @@ function Product() {
           <img
             src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview"
             alt="new"
-            className="w-full h-full rounded-3xl object-cover drop-shadow-main"
+            className="w-full h-full rounded-3xl object-contain drop-shadow-main"
           />
         </div>
 
         <div className="absolute left-0 right-0 mx-auto bottom-0 w-11/12 h-[30rem] p-10 flex flex-col text-left font-raleway bg-white rounded-t-3xl drop-shadow-main opacity-70 backdrop-blur-3xl filter">
           <h1 className="font-bold font-merriweather text-3xl">
-            {cocktailData?.drinks?.[0].strDrink || <Loader/>}
+            {cocktailData?.drinks?.[0].strDrink || <Loader />}
           </h1>
           <h2 className="text-sm text-web-gray">
-            {cocktailData?.drinks?.[0].strGlass || <Loader/>}
+            {cocktailData?.drinks?.[0].strGlass || <Loader />}
           </h2>
 
           <ul className="my-4 list-disc ml-4  text-web-gray text-xs">
-            <li>
-              Place sugar cube in old fashioned glass and saturate with bitters,
-              add a dash of plain water.
-            </li>
+            {cocktailData?.drinks?.[0].strInstructions
+              .split(".")
+              .slice(0, -1)
+              .map((item, index) => <li key={index}>{item}.</li>) || <Loader />}
           </ul>
 
           <h3 className="font-raleway font-bold text-xl">Ingredients</h3>
-          <ul className="mt-4 list-none text-web-gray text-xs">
-            <li> 4.5cL Bourbon</li>
-          </ul>
+          {/* <ul className="mt-4 list-none text-web-gray text-xs">
+            {cocktailIngredients.map((item, index) => (
+              <li key={index}>{item.measure} {item.ingredient}</li>
+            )) || <Loader />}
+          </ul> */}
 
-          <ul className="mt-auto flex items-center ">
-            <li className="w-max h-36">
-              <img
-                src="https://www.thecocktaildb.com/images/ingredients/gin-Small.png"
-                alt="new"
-                className="w-full h-full rounded-3xl object-cover drop-shadow-main"
-              />
-            </li>
-            <li className="w-max h-36">
-              <img
-                src="https://www.thecocktaildb.com/images/ingredients/Bourbon-small.png"
-                alt="new"
-                className="w-full h-full rounded-3xl object-cover drop-shadow-main"
-              />
-            </li>
+          <ul className="mt-auto flex items-center w-full flex-1 py-8 text-xs">
+            <Slider {...settings} className="w-full h-full bg-blue-400">
+              <li className="flex flex-col items-center justify-center">
+                <div className=" h-full bg-white rounded-2xl">
+                  <img
+                    src="https://www.thecocktaildb.com/images/ingredients/gin-Small.png"
+                    alt="new"
+                    className="w-full rounded-3xl object-contain drop-shadow-main"
+                  />
+                </div>
+                <h3 className="flex-1 align-middle text-center">4.5cL Bourbon</h3>
+              </li>
+
+              <li className="  h-full bg-white rounded-2xl">
+                <img
+                  src="https://www.thecocktaildb.com/images/ingredients/Bourbon-small.png"
+                  alt="new"
+                  className="w-full h-full rounded-3xl object-contain drop-shadow-main"
+                />
+              </li>
+              <li className="  h-full  bg-white rounded-2xl">
+                <img
+                  src="https://www.thecocktaildb.com/images/ingredients/Vodka-small.png"
+                  alt="new"
+                  className="w-full h-full rounded-3xl object-contain drop-shadow-main"
+                />
+              </li>
+              <li className="  h-full bg-white rounded-2xl">
+                <img
+                  src="https://www.thecocktaildb.com/images/ingredients/Lemon-small.png"
+                  alt="new"
+                  className="w-full h-full rounded-3xl object-contain drop-shadow-main"
+                />
+              </li>
+            </Slider>
           </ul>
         </div>
       </div>
