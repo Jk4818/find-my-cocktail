@@ -62,6 +62,7 @@ function Product() {
 
   var settings = {
     dots: false,
+    autoplay: true,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -122,7 +123,7 @@ function Product() {
           />
         </div>
 
-        <div className="absolute left-0 right-0 mx-auto bottom-0 w-11/12 h-[30rem] p-10 flex flex-col text-left font-raleway bg-white rounded-2xl drop-shadow-main opacity-70 backdrop-blur-3xl filter">
+        <div className="absolute left-0 right-0 mx-auto bottom-0 w-11/12 h-[32rem] p-10 flex flex-col text-left font-raleway bg-white rounded-2xl drop-shadow-main opacity-70 backdrop-blur-3xl filter">
           <h1 className="font-bold font-merriweather text-3xl">
             {cocktailData?.drinks?.[0].strDrink || <Loader />}
           </h1>
@@ -141,17 +142,17 @@ function Product() {
 
 
           <ul className=" flex items-center w-full h-1/2 grow  text-xs py-4">
-            <Slider {...settings} className="w-full h-full">
+            <Slider {...settings} className="w-full h-full cursor-grab">
               {cocktailIngredients.map((item, index) => (
                 <li key={index} className="h-full flex flex-col">
-                  <div className="h-5/6 bg-gray-100 rounded-2xl flex p-2">
+                  <div className="h-2/3 bg-gray-100 hover:bg-gray-200 transition-all rounded-2xl flex p-2">
                     <img
                       src={`https://www.thecocktaildb.com/images/ingredients/${item.ingredient}-Medium.png`}
                       alt="new"
                       className="w-full rounded-3xl object-cover drop-shadow-main"
                     />
                   </div>
-                  <h3 className="w-full mt-4 h-max text-center">
+                  <h3 className="w-full mt-2 h-max text-center font-semibold">
                     {item.measure} {item.ingredient}
                   </h3>
                 </li>
