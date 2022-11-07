@@ -116,7 +116,7 @@ function Product() {
           />
         </div>
 
-        <div className="absolute left-0 right-0 mx-auto bottom-0 w-11/12 h-[30rem] p-10 flex flex-col text-left font-raleway bg-white rounded-t-3xl drop-shadow-main opacity-70 backdrop-blur-3xl filter">
+        <div className="absolute left-0 right-0 mx-auto bottom-0 w-11/12 h-[30rem] p-10 flex flex-col text-left font-raleway bg-white rounded-2xl drop-shadow-main opacity-70 backdrop-blur-3xl filter">
           <h1 className="font-bold font-merriweather text-3xl">
             {cocktailData?.drinks?.[0].strDrink || <Loader />}
           </h1>
@@ -138,40 +138,20 @@ function Product() {
             )) || <Loader />}
           </ul> */}
 
-          <ul className="mt-auto flex items-center w-full flex-1 py-8 text-xs">
-            <Slider {...settings} className="w-full h-full bg-blue-400">
-              <li className="flex flex-col items-center justify-center">
-                <div className=" h-full bg-white rounded-2xl">
+          <ul className=" flex items-center w-full h-1/2 grow  text-xs py-4">
+            <Slider {...settings} className="w-full h-full">
+
+              <li className="h-full flex flex-col">
+                <div className="h-5/6 bg-gray-100 rounded-2xl flex p-2">
                   <img
                     src="https://www.thecocktaildb.com/images/ingredients/gin-Small.png"
                     alt="new"
-                    className="w-full rounded-3xl object-contain drop-shadow-main"
+                    className="w-full rounded-3xl object-cover drop-shadow-main"
                   />
                 </div>
-                <h3 className="flex-1 align-middle text-center">4.5cL Bourbon</h3>
+                <h3 className="w-full mt-4 h-max text-center">4.5cL Bourbon</h3>
               </li>
 
-              <li className="  h-full bg-white rounded-2xl">
-                <img
-                  src="https://www.thecocktaildb.com/images/ingredients/Bourbon-small.png"
-                  alt="new"
-                  className="w-full h-full rounded-3xl object-contain drop-shadow-main"
-                />
-              </li>
-              <li className="  h-full  bg-white rounded-2xl">
-                <img
-                  src="https://www.thecocktaildb.com/images/ingredients/Vodka-small.png"
-                  alt="new"
-                  className="w-full h-full rounded-3xl object-contain drop-shadow-main"
-                />
-              </li>
-              <li className="  h-full bg-white rounded-2xl">
-                <img
-                  src="https://www.thecocktaildb.com/images/ingredients/Lemon-small.png"
-                  alt="new"
-                  className="w-full h-full rounded-3xl object-contain drop-shadow-main"
-                />
-              </li>
             </Slider>
           </ul>
         </div>

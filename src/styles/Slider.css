@@ -1,7 +1,6 @@
 .slick-slide {
   height: 100%;
   padding: 0 4px;
-  filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
 }
 
 .slick-list {
@@ -10,6 +9,6 @@
 .slick-track {
   height: 100%;
 }
-.slick-track div {
+.slick-slide > div {
   height: 100%;
 }
