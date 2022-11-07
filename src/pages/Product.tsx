@@ -5,6 +5,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../styles/Slider.css";
 
+
+import {GoChevronRight, GoChevronLeft} from "react-icons/go";
+
 function Product() {
   interface Drinks {
     drinks: Array<Cocktail>;
@@ -61,7 +64,9 @@ function Product() {
     dots: false,
     infinite: true,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
+    nextArrow: <GoChevronRight />,
+    prevArrow: <GoChevronLeft />,
   };
 
   const [cocktailData, setCocktailData] = useState<Drinks>();
@@ -80,6 +85,7 @@ function Product() {
         ingredients.push({ ingredient, measure });
       }
     }
+    console.log(ingredients);
     setCocktailIngredients(ingredients);
   }
 
@@ -132,26 +138,24 @@ function Product() {
           </ul>
 
           <h3 className="font-raleway font-bold text-xl">Ingredients</h3>
-          {/* <ul className="mt-4 list-none text-web-gray text-xs">
-            {cocktailIngredients.map((item, index) => (
-              <li key={index}>{item.measure} {item.ingredient}</li>
-            )) || <Loader />}
-          </ul> */}
+
 
           <ul className=" flex items-center w-full h-1/2 grow  text-xs py-4">
             <Slider {...settings} className="w-full h-full">
-
-              <li className="h-full flex flex-col">
-                <div className="h-5/6 bg-gray-100 rounded-2xl flex p-2">
-                  <img
-                    src="https://www.thecocktaildb.com/images/ingredients/gin-Small.png"
-                    alt="new"
-                    className="w-full rounded-3xl object-cover drop-shadow-main"
-                  />
-                </div>
-                <h3 className="w-full mt-4 h-max text-center">4.5cL Bourbon</h3>
-              </li>
-
+              {cocktailIngredients.map((item, index) => (
+                <li key={index} className="h-full flex flex-col">
+                  <div className="h-5/6 bg-gray-100 rounded-2xl flex p-2">
+                    <img
+                      src={`https://www.thecocktaildb.com/images/ingredients/${item.ingredient}-Medium.png`}
+                      alt="new"
+                      className="w-full rounded-3xl object-cover drop-shadow-main"
+                    />
+                  </div>
+                  <h3 className="w-full mt-4 h-max text-center">
+                    {item.measure} {item.ingredient}
+                  </h3>
+                </li>
+              )) || <Loader />}
             </Slider>
           </ul>
         </div>

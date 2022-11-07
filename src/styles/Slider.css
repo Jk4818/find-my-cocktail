@@ -12,3 +12,11 @@
 .slick-slide > div {
   height: 100%;
 }
+
+.slick-arrow{
+  color: gray;
+  transition: 0.3s;
+}
+.slick-arrow:hover{
+  color: black;
+}
