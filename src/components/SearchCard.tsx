@@ -53,7 +53,7 @@ function SearchCard({ loading, cocktailData }: Props) {
   }, []);
 
   return (
-    <div className="w-full h-60 flex text-center font-raleway bg-white rounded-2xl drop-shadow-main bg-opacity-70 group hover:-translate-y-2 transition-all cursor-pointer">
+    <div className="w-full h-60 flex text-center font-raleway bg-white/70 rounded-2xl drop-shadow-main backdrop-blur-sm group hover:-translate-y-2 transition-all cursor-pointer">
       <div className="mr-auto  h-full aspect-square drop-shadow-main">
         {!loading ? (
           <img

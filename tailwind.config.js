@@ -20,15 +20,26 @@ module.exports = {
       },
       animation: {
         blob: "blob 20s infinite",
+        "blob-2": "blob-2 15s infinite",
         "bounce-x": "bounce-x 1s infinite",
         ring: "ring 4s 0.7s infinite ease-in-out"
       },
       keyframes: {
         blob: {
-          "0%":   { transform: "scale(1)   translate(10px, -30px)" },
-          "20%":  { transform: "scale(0.8, 1) translate(30px, 0px) rotate(160deg)" },
+          "0%":   { transform: "scale(1)   translate(0, 0)" },
+          "10%":   { transform: "scale(1)   translate(10px, -30px)" },
+          "20%":  { transform: "scale(0.8, 1) translate(30px, 0px) rotate(90deg)" },
           "78%":  { transform: "scale(1.3) translate(0vw, 40px) rotate(-20deg)" },
-          "100%": { transform: "scale(1)   translate(10px, -30px)" },
+          "90%": { transform: "scale(1)   translate(10px, -30px)" },
+          "100%":   { transform: "scale(1)   translate(0, 0)" },
+        },
+        "blob-2": {
+          "0%":   { transform: "scale(1)   translate(0, 0)" },
+          "10%":   { transform: "scale(1)   translate(10px, 20px)" },
+          "20%":  { transform: "scale(0.8, 1) translate(10px, 0px) rotate(-50deg)" },
+          "78%":  { transform: "scale(1.3) translate(0, 40px) rotate(60deg)" },
+          "90%": { transform: "scale(1)   translate(10px, -30px)" },
+          "100%":   { transform: "scale(1)   translate(0, 0)" },
         },
         ring: {
          " 0%": { transform: "rotate(0)" },
