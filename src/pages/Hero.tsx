@@ -7,13 +7,14 @@ import Logo from "../assets/images/logo.png";
 
 import LoadingIcon from "../components/LoadingIcon";
 import Footer from "../components/Footer";
+import Popular from "../components/Popular";
 
 function Hero() {
   return (
-    <div className="relative">
+    <div className="relative w-screen h-screen overflow-hidden">
       <Title />
       <SearchBar />
-      <ListCard />
+      <Popular />
       <div className="w-60 h-12 flex items-center gap-2">
         <img
           src={Logo}

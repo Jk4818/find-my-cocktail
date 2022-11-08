@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
+import { motion } from "framer-motion";
 
 import { Cocktail, Ingredients } from "../common/types";
 
 import { TiChevronRight } from "react-icons/ti";
 import { parseIngredients } from "../common/helper";
+import { Navigate, useNavigate } from "react-router-dom";
 
 type Props = {
   loading: boolean;
@@ -12,6 +14,7 @@ type Props = {
 };
 
 function SearchCard({ loading, cocktailData }: Props) {
+  const navigate = useNavigate();
   const [cocktailIngredients, setCocktailIngredients] = useState<Ingredients[]>(
     []
   );
@@ -52,8 +55,20 @@ function SearchCard({ loading, cocktailData }: Props) {
     }
   }, []);
 
+  function handleClick(e : React.MouseEvent<HTMLDivElement, MouseEvent>) {
+    e.preventDefault();
+    navigate(`/product/${cocktailData?.idDrink}`);
+  }
+
   return (
-    <div className="w-full h-60 flex text-center font-raleway bg-white/70 rounded-2xl drop-shadow-main backdrop-blur-sm group hover:-translate-y-2 transition-all cursor-pointer">
+    <motion.div
+      initial={{ opacity: 0,  y: 50 }}
+      whileInView={{ opacity: 1,  y: 0 }}
+      transition={{ ease: "easeInOut" }}
+      viewport={{ once: true }}
+      onClick={handleClick}
+      className="w-full h-60 flex text-center font-raleway bg-white/70 rounded-2xl drop-shadow-main backdrop-blur-sm group hover:-translate-y-2 transition-all cursor-pointer"
+    >
       <div className="mr-auto  h-full aspect-square drop-shadow-main">
         {!loading ? (
           <img
@@ -111,7 +126,7 @@ function SearchCard({ loading, cocktailData }: Props) {
           <TiChevronRight className="text-2xl ml-auto  group-hover:animate-bounce-x transition-all" />
         </ul>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

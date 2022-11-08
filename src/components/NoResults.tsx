@@ -15,7 +15,7 @@ export default function NoResults({}: Props) {
         />
       </div>
       <h1 className="font-bold">No Results Found</h1>
-      <p>We've searched over 1000 cocktails and couldn't find what you're looking for 😭.</p>
+      <p className="mt-4">We've searched over 1000 cocktails and couldn't find what you're looking for 😭.</p>
     </div>
   );
 }
