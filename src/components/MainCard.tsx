@@ -22,7 +22,7 @@ export default function MainCard({
     slideCount,
     ...props
   }: CustomArrowProps) => (
-    <span {...props}>
+    <span {...props} className="absolute h-max -right-6 top-14 bottom-0 text-2xl text-black">
       <GoChevronRight />
     </span>
   );
@@ -31,7 +31,7 @@ export default function MainCard({
     slideCount,
     ...props
   }: CustomArrowProps) => (
-    <span {...props}>
+    <span {...props} className="absolute h-max -left-6 top-14 bottom-0 text-2xl text-black">
       <GoChevronLeft />
     </span>
   );
@@ -99,7 +99,7 @@ export default function MainCard({
         <h3 className="font-raleway font-bold text-xl">Ingredients</h3>
 
         <ul className=" flex items-center w-full h-1/2 grow  text-xs py-4">
-          <Slider {...settings} className="w-full h-full cursor-grab">
+          <Slider {...settings} className="w-full h-full cursor-grab flex">
             {!loading
               ? cocktailIngredients.map((item, index) => (
                   <li key={index} className="h-full flex flex-col">
