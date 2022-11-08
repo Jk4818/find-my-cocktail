@@ -54,7 +54,7 @@ export default function MainCard({
 
   useEffect(() => {
     setCocktailIngredients(parseIngredients(cocktailData));
-  }, [])
+  }, [cocktailData])
   
   
   return (

@@ -6,6 +6,7 @@ import SearchCard from "../components/SearchCard";
 import { Drinks } from "../common/types";
 import { useSearchParams } from "react-router-dom";
 import NoResults from "../components/NoResults";
+import { titleCase } from "../common/helper";
 type Props = {};
 
 export default function Search({}: Props) {
@@ -36,10 +37,14 @@ export default function Search({}: Props) {
   }, []);
 
   return (
-    <div className="w-screen h-screen p-4 flex flex-col items-center">
+    <div className="w-screen h-screen p-4 flex flex-col gap-20 items-center">
       <SearchBar />
 
-      <div className="mt-40 w-[35rem] flex flex-col gap-10">
+      <h1 className="font-raleway font-black text-4xl text-black z-10 w-[35rem] text-left">
+        Browse: {titleCase(searchParams.get("q"))}
+      </h1>
+
+      <div className=" w-[35rem] flex flex-col gap-10">
         {!loading ? (
           searchData?.drinks !== null ? (
             searchData?.drinks.map((drink, index) => (

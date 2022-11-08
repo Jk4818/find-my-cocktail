@@ -5,7 +5,6 @@ import SearchBar from "../components/SearchBar";
 import Title from "../components/Title";
 import Logo from "../assets/images/logo.png";
 
-import SearchCard from "../components/SearchCard";
 import LoadingIcon from "../components/LoadingIcon";
 import Footer from "../components/Footer";
 
