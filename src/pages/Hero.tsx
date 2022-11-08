@@ -1,5 +1,4 @@
 import React from "react";
-import BlobAnimation from "../components/BlobAnimation";
 import ListCard from "../components/ListCard";
 
 import SearchBar from "../components/SearchBar";
@@ -9,12 +8,10 @@ import Logo from "../assets/images/logo.png";
 import SearchCard from "../components/SearchCard";
 import LoadingIcon from "../components/LoadingIcon";
 import Footer from "../components/Footer";
-import Product from "./Product";
 
 function Hero() {
   return (
     <div className="relative">
-      <BlobAnimation />
       <Title />
       <SearchBar />
       <ListCard />
@@ -35,7 +32,6 @@ function Hero() {
 
       <Footer />
 
-      <Product />
     </div>
   );
 }

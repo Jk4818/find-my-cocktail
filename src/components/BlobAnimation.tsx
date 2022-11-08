@@ -47,17 +47,16 @@ function BlobAnimation() {
   ];
 
   return (
-    <div className="absolute h-screen w-screen">
-      <div className="absolute top-0 bottom-0 my-auto left-0 right-0 mx-auto w-96 h-96 animate-blob mix-blend-multiply filter blur-xl">
+    <div className="relative h-screen w-screen">
+      <div className="absolute animation-delay-5000 top-80 bottom-0 my-auto left-40 right-0 mx-auto w-[40rem] h-[40rem] animate-blob mix-blend-multiply filter blur-xl">
+        {blobTypes[2].blob}
+      </div>
+      <div className="absolute top-0 bottom-0 my-auto left-0 right-80 mx-auto w-[45rem] h-[45rem] animate-blob mix-blend-multiply filter blur-xl">
         {blobTypes[0].blob}
       </div>
 
-      <div className="absolute animation-delay-3000 top-40 left-0 w-96 h-96 animate-blob mix-blend-multiply filter blur-xl">
+      <div className="absolute animation-delay-3000 top-0 bottom-80 my-auto left-0 right-0 mx-auto w-[30rem] h-[30rem] animate-blob mix-blend-multiply filter blur-xl">
         {blobTypes[1].blob}
-      </div>
-
-      <div className="absolute animation-delay-5000 top-10 left-40 w-96 h-96 animate-blob mix-blend-multiply filter blur-xl">
-        {blobTypes[2].blob}
       </div>
     </div>
   );

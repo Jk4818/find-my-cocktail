@@ -2,15 +2,17 @@ import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import Skeleton from "react-loading-skeleton";
 
-import Loader from "../components/Loader";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "react-loading-skeleton/dist/skeleton.css";
 import "../styles/Slider.css";
 
 import { GoChevronRight, GoChevronLeft } from "react-icons/go";
+import { useParams } from "react-router-dom";
 
-function Product() {
+
+
+const Product = () => {
   interface Drinks {
     drinks: Array<Cocktail>;
   }
@@ -75,11 +77,11 @@ function Product() {
 
   const [cocktailData, setCocktailData] = useState<Drinks>();
   const [loading, setLoading] = useState(true);
-  const [cocktailId, setCocktailId] = useState("11001");
   const [cocktailIngredients, setCocktailIngredients] = useState<Ingredients[]>(
     []
   );
 
+  const { cocktailId } = useParams<{cocktailId? : string}>();
 
   function parseIngredients(cocktail: Cocktail) {
     const ingredients = [];
@@ -96,6 +98,7 @@ function Product() {
 
   useEffect(() => {
     function getProduct() {
+      console.log("done: ",cocktailId);
       setLoading(true);
       fetch(
         `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailId}`
