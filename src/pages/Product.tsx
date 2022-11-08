@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Slider from "react-slick";
 import Skeleton from "react-loading-skeleton";
 
@@ -8,7 +9,6 @@ import "react-loading-skeleton/dist/skeleton.css";
 import "../styles/Slider.css";
 
 import { GoChevronRight, GoChevronLeft } from "react-icons/go";
-import { useParams } from "react-router-dom";
 
 
 

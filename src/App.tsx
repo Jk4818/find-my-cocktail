@@ -4,6 +4,7 @@ import { BrowserRouter as Router,Routes,  Route } from "react-router-dom";
 import BlobAnimation from "./components/BlobAnimation";
 import Hero from "./pages/Hero";
 import Product from "./pages/Product";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Hero />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/product/:cocktailId" element={<Product />} />
         </Routes>
       </Router>
