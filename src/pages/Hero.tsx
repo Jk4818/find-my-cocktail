@@ -24,9 +24,6 @@ function Hero() {
         <h1 className="font-raleway font-black">Find My Cocktail</h1>
       </div>
 
-      <div className="w-[35rem]">
-        <SearchCard />
-      </div>
 
       <LoadingIcon />
 

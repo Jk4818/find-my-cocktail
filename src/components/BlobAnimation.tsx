@@ -47,7 +47,7 @@ function BlobAnimation() {
   ];
 
   return (
-    <div className="relative h-screen w-screen">
+    <div className="relative h-screen w-screen overflow-hidden">
       <div className="absolute animation-delay-5000 top-80 bottom-0 my-auto left-40 right-0 mx-auto w-[40rem] h-[40rem] animate-blob mix-blend-multiply filter blur-xl">
         {blobTypes[2].blob}
       </div>

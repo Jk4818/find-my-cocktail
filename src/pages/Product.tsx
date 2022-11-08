@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Slider from "react-slick";
-import Skeleton from "react-loading-skeleton";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "react-loading-skeleton/dist/skeleton.css";
 import "../styles/Slider.css";
 
-import { GoChevronRight, GoChevronLeft } from "react-icons/go";
+import MainCard from "../components/MainCard";
 
 
 
@@ -65,15 +63,7 @@ const Product = () => {
     measure: string;
   }
 
-  var settings = {
-    dots: false,
-    autoplay: true,
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    nextArrow: <GoChevronRight />,
-    prevArrow: <GoChevronLeft />,
-  };
+
 
   const [cocktailData, setCocktailData] = useState<Drinks>();
   const [loading, setLoading] = useState(true);
@@ -120,71 +110,7 @@ const Product = () => {
 
   return (
     <div className="relative w-screen h-screen flex justify-center">
-      <div className="relative w-[30rem] h-full">
-        <div className="mt-20 w-full aspect-square">
-          {!loading ? (
-            <img
-              src={cocktailData?.drinks?.[0].strDrinkThumb}
-              alt="new"
-              className="w-full h-full rounded-3xl object-contain drop-shadow-main"
-            />
-          ) : (
-            <Skeleton height="100%" className="z-0" borderRadius="1.5rem" />
-          )}
-        </div>
-
-        <div className="absolute left-0 right-0 mx-auto bottom-0 w-11/12 h-[32rem] p-10 flex flex-col text-left font-raleway bg-white/80 rounded-2xl drop-shadow-main backdrop-blur-sm filter z-10">
-          <h1 className="font-bold font-merriweather text-3xl">
-            {!loading ? cocktailData?.drinks?.[0].strDrink : <Skeleton />}
-          </h1>
-          <h2 className="text-sm text-web-gray">
-            {!loading ? cocktailData?.drinks?.[0].strGlass : <Skeleton width="40%" />}
-          </h2>
-
-          <ul className="my-4 list-disc ml-4  text-web-gray text-xs">
-            {!loading ?  cocktailData?.drinks?.[0].strInstructions
-              .split(".")
-              .slice(0, -1)
-              .map((item, index) =>
-                (
-                  <li key={index}>{item}.</li>
-                ) 
-              ): (
-                Array.from(Array(5), (e, i) => (
-                  <li>
-                    <Skeleton width={Math.floor(Math.random() * 80) + 10 + '%'} />
-                  </li>
-                ))
-              )}
-          </ul>
-
-          <h3 className="font-raleway font-bold text-xl">Ingredients</h3>
-
-          <ul className=" flex items-center w-full h-1/2 grow  text-xs py-4">
-            <Slider {...settings} className="w-full h-full cursor-grab">
-              {!loading ? (cocktailIngredients.map((item, index) =>
-                
-                  <li key={index} className="h-full flex flex-col">
-                    <div className="h-2/3 bg-gray-100 hover:bg-gray-200 transition-all rounded-2xl flex p-2">
-                      <img
-                        src={`https://www.thecocktaildb.com/images/ingredients/${item.ingredient}-Medium.png`}
-                        alt="new"
-                        className="w-full rounded-3xl object-cover drop-shadow-main"
-                      />
-                    </div>
-                    <h3 className="w-full mt-2 h-max text-center font-semibold">
-                      {item.measure} {item.ingredient}
-                    </h3>
-                  </li>
-                )
-              
-                ) : (
-                  Array.from(Array(4), (e, i) => (<Skeleton height="100%" />))
-                )}
-            </Slider>
-          </ul>
-        </div>
-      </div>
+      <MainCard loading={loading} cocktailData={cocktailData} cocktailIngredients={cocktailIngredients} />
     </div>
   );
 }
