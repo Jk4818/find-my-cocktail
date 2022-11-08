@@ -89,26 +89,26 @@ function BlobAnimation() {
 
   return (
     <div className="relative h-screen w-screen overflow-hidden">
-      <div className="absolute -top-20 -left-20  w-[40rem] h-[40rem] animate-blob-2 mix-blend-multiply ">
+      <div className="absolute -top-20 -left-20  w-[40rem] h-[40rem] sm:animate-blob-2 mix-blend-multiply ">
         {blobTypes[3].blob}
       </div>
 
-      <div className="absolute animation-delay-3000 -bottom-20 right-0 mx-auto w-[40rem] h-[40rem] animate-blob-2 mix-blend-multiply ">
+      <div className="absolute animation-delay-3000 -bottom-20 right-0 mx-auto w-[40rem] h-[40rem] sm:animate-blob-2 mix-blend-multiply ">
         {blobTypes[2].blob}
       </div>
-      <div className="absolute top-40 bottom-0 my-auto animation-delay-5000 -left-80 right-80 mx-auto w-[45rem] h-[45rem] animate-blob mix-blend-multiply ">
+      <div className="absolute top-40 bottom-0 my-auto animation-delay-5000 -left-80 right-80 mx-auto w-[45rem] h-[45rem] sm:animate-blob mix-blend-multiply ">
         {blobTypes[0].blob}
       </div>
 
-      <div className="absolute animation-delay-3000 top-0 bottom-80 my-auto left-0 right-0 mx-auto w-[30rem] h-[30rem] animate-blob mix-blend-multiply ">
+      <div className="absolute animation-delay-3000 top-0 bottom-80 my-auto left-0 right-0 mx-auto w-[30rem] h-[30rem] sm:animate-blob mix-blend-multiply ">
         {blobTypes[1].blob}
       </div>
 
-      <div className="absolute -bottom-40 -left-40  w-[45rem] h-[45rem] animate-blob mix-blend-multiply ">
+      <div className="absolute -bottom-40 -left-40  w-[45rem] h-[45rem] sm:animate-blob mix-blend-multiply ">
         {blobTypes[4].blob}
       </div>
 
-      <div className="absolute animation-delay-5000 -top-20 -right-40 mx-auto w-[45rem] h-[45rem] animate-blob-2 mix-blend-multiply ">
+      <div className="absolute animation-delay-5000 -top-20 -right-40 mx-auto w-[45rem] h-[45rem] sm:animate-blob-2 mix-blend-multiply ">
         {blobTypes[5].blob}
       </div>
     </div>
