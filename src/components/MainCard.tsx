@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import Skeleton from "react-loading-skeleton";
 
 import { GoChevronRight, GoChevronLeft } from "react-icons/go";
+import { CustomArrowProps } from "react-slick";
 
 interface Drinks {
   drinks: Array<Cocktail>;
@@ -57,24 +58,44 @@ interface Ingredients {
   measure: string;
 }
 
-
 type Props = {
   loading: boolean;
   cocktailData: Drinks | undefined;
   cocktailIngredients: Ingredients[];
-
 };
 
-export default function MainCard({loading, cocktailData, cocktailIngredients}: Props) {
-  var settings = {
+export default function MainCard({
+  loading,
+  cocktailData,
+  cocktailIngredients,
+}: Props) {
+  const SlickButtonFixRight = ({
+    currentSlide,
+    slideCount,
+    ...props
+  }: CustomArrowProps) => (
+    <span {...props}>
+      <GoChevronRight />
+    </span>
+  );
+  const SlickButtonFixLeft = ({
+    currentSlide,
+    slideCount,
+    ...props
+  }: CustomArrowProps) => (
+    <span {...props}>
+      <GoChevronLeft />
+    </span>
+  );
 
+  var settings = {
     dots: false,
     autoplay: true,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 3,
-    nextArrow: <GoChevronRight />,
-    prevArrow: <GoChevronLeft />,
+    nextArrow: <SlickButtonFixRight />,
+    prevArrow: <SlickButtonFixLeft />,
   };
 
   return (
@@ -110,7 +131,7 @@ export default function MainCard({loading, cocktailData, cocktailIngredients}: P
                 .slice(0, -1)
                 .map((item, index) => <li key={index}>{item}.</li>)
             : Array.from(Array(5), (e, i) => (
-                <li>
+                <li key={i}>
                   <Skeleton width={Math.floor(Math.random() * 80) + 10 + "%"} />
                 </li>
               ))}
