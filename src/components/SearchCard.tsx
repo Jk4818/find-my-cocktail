@@ -26,11 +26,12 @@ function SearchCard({ loading, cocktailData }: Props) {
   ) {
     if (ingredients.length > length) {
       if (type === "featured") {
-        let newIngredients = ingredients.filter(item => !(item.ingredient.length > 8));
+        let newIngredients = ingredients.filter(
+          (item) => !(item.ingredient.length > 8)
+        );
         newIngredients = newIngredients.slice(0, length);
         return newIngredients;
-      }
-      else{
+      } else {
         let newIngredients = ingredients.slice(0, length - 1);
         newIngredients.push({ ingredient: "...", measure: "" });
         return newIngredients;
@@ -41,20 +42,32 @@ function SearchCard({ loading, cocktailData }: Props) {
   }
 
   useEffect(() => {
-    setCocktailIngredients(cutIngredients(parseIngredients(cocktailData), 4, ""));
-    setCocktailFeaturedIngredients(
-      cutIngredients(parseIngredients(cocktailData), 2, "featured")
-    );
+    if (!loading) {
+      setCocktailIngredients(
+        cutIngredients(parseIngredients(cocktailData), 4, "")
+      );
+      setCocktailFeaturedIngredients(
+        cutIngredients(parseIngredients(cocktailData), 2, "featured")
+      );
+    }
   }, []);
 
   return (
     <div className="w-full h-60 flex text-center font-raleway bg-white rounded-2xl drop-shadow-main bg-opacity-70 group hover:-translate-y-2 transition-all cursor-pointer">
       <div className="mr-auto  h-full aspect-square drop-shadow-main">
-        <img
-          src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview"
-          alt="new"
-          className="w-full h-full rounded-xl object-cover"
-        />
+        {!loading ? (
+          <img
+            src={cocktailData?.strDrinkThumb}
+            alt="new"
+            className="w-full h-full rounded-xl object-cover"
+          />
+        ) : (
+          <Skeleton
+            className="h-full w-full"
+            height="100%"
+            borderRadius="0.75rem"
+          />
+        )}
       </div>
 
       <div className="w-full h-full p-4 pl-10 pt-10 flex flex-col gap-2 text-left">
@@ -90,8 +103,8 @@ function SearchCard({ loading, cocktailData }: Props) {
                 </li>
               ))
             : Array.from(Array(3), (e, i) => (
-                <li key={i}>
-                  <Skeleton width={Math.floor(Math.random() * 50) + 10 + "%"} />
+                <li key={i} className="w-10 h-4">
+                  <Skeleton />
                 </li>
               ))}
 

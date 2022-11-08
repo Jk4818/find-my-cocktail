@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <header className="absolute w-screen h-screen">
+        <header className="fixed w-screen h-screen">
           <BlobAnimation />
         </header>
 

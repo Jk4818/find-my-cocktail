@@ -38,13 +38,9 @@ export default function Search({}: Props) {
       <div className="mt-40 w-[35rem] flex flex-col gap-10">
         {!loading
           ? searchData?.drinks.map((drink, index) => (
-              <SearchCard key={index} cocktailData={drink} loading={loading}/>
+              <SearchCard key={index} cocktailData={drink} loading={false} />
             ))
-          : Array.from(Array(5), (e, i) => (
-              <li key={i}>
-                <Skeleton width={Math.floor(Math.random() * 80) + 10 + "%"} />
-              </li>
-            ))}
+          : Array.from(Array(5), (e, i) => <SearchCard key={i} cocktailData={undefined} loading={true} />)}
       </div>
     </div>
   );
