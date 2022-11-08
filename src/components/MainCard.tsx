@@ -1,22 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import { CustomArrowProps } from "react-slick";
 import Skeleton from "react-loading-skeleton";
-import { Drinks, Ingredients} from "../common/types";
+import { Cocktail, Ingredients} from "../common/types";
 
 import { GoChevronRight, GoChevronLeft } from "react-icons/go";
+import { parseIngredients } from "../common/helper";
 
 
 type Props = {
   loading: boolean;
-  cocktailData: Drinks | undefined;
-  cocktailIngredients: Ingredients[];
+  cocktailData: Cocktail | undefined;
 };
 
 export default function MainCard({
   loading,
   cocktailData,
-  cocktailIngredients,
 }: Props) {
   const SlickButtonFixRight = ({
     currentSlide,
@@ -47,12 +46,23 @@ export default function MainCard({
     prevArrow: <SlickButtonFixLeft />,
   };
 
+  
+  const [cocktailIngredients, setCocktailIngredients] = useState<Ingredients[]>(
+    []
+  );
+
+
+  useEffect(() => {
+    setCocktailIngredients(parseIngredients(cocktailData));
+  }, [])
+  
+  
   return (
     <div className="relative w-[30rem] h-full">
       <div className="mt-20 w-full aspect-square">
         {!loading ? (
           <img
-            src={cocktailData?.drinks?.[0].strDrinkThumb}
+            src={cocktailData?.strDrinkThumb}
             alt="new"
             className="w-full h-full rounded-3xl object-contain drop-shadow-main"
           />
@@ -63,11 +73,11 @@ export default function MainCard({
 
       <div className="absolute left-0 right-0 mx-auto bottom-0 w-11/12 h-[32rem] p-10 flex flex-col text-left font-raleway bg-white/80 rounded-2xl drop-shadow-main backdrop-blur-sm filter z-10">
         <h1 className="font-bold font-merriweather text-3xl">
-          {!loading ? cocktailData?.drinks?.[0].strDrink : <Skeleton />}
+          {!loading ? cocktailData?.strDrink : <Skeleton />}
         </h1>
         <h2 className="text-sm text-web-gray">
           {!loading ? (
-            cocktailData?.drinks?.[0].strGlass
+            cocktailData?.strGlass
           ) : (
             <Skeleton width="40%" />
           )}
@@ -75,7 +85,7 @@ export default function MainCard({
 
         <ul className="my-4 list-disc ml-4  text-web-gray text-xs">
           {!loading
-            ? cocktailData?.drinks?.[0].strInstructions
+            ? cocktailData?.strInstructions
                 .split(".")
                 .slice(0, -1)
                 .map((item, index) => <li key={index}>{item}.</li>)

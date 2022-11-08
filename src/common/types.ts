@@ -46,6 +46,7 @@ export interface Cocktail {
   strCreativeCommonsConfirmed: string;
   dateModified: string;
 }
+
 export interface Ingredients {
   ingredient: string;
   measure: string;
