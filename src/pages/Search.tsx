@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from "react";
-import Skeleton from "react-loading-skeleton";
 
 import SearchBar from "../components/SearchBar";
 import SearchCard from "../components/SearchCard";
 
 import { Drinks } from "../common/types";
+import { useSearchParams } from "react-router-dom";
+import NoResults from "../components/NoResults";
 type Props = {};
 
 export default function Search({}: Props) {
   const [loading, setLoading] = useState(true);
   const [searchData, setSearchData] = useState<Drinks>();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     function getProduct() {
       setLoading(true);
       fetch(
-        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchParams.get(
+          "q"
+        )}`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -36,11 +40,17 @@ export default function Search({}: Props) {
       <SearchBar />
 
       <div className="mt-40 w-[35rem] flex flex-col gap-10">
-        {!loading
-          ? searchData?.drinks.map((drink, index) => (
-              <SearchCard key={index} cocktailData={drink} loading={false} />
+        {!loading ? (
+          searchData?.drinks !== null ? (
+            searchData?.drinks.map((drink, index) => (
+              <SearchCard key={index} cocktailData={drink} loading={loading} />
             ))
-          : Array.from(Array(5), (e, i) => <SearchCard key={i} cocktailData={undefined} loading={true} />)}
+          ) : (
+            <NoResults />
+          )
+        ) : (
+          <SearchCard cocktailData={undefined} loading={loading} />
+        )}
       </div>
     </div>
   );

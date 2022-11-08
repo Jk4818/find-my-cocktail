@@ -27,7 +27,7 @@ function SearchCard({ loading, cocktailData }: Props) {
     if (ingredients.length > length) {
       if (type === "featured") {
         let newIngredients = ingredients.filter(
-          (item) => !(item.ingredient.length > 8)
+          (item) => !(item.ingredient.length > 9)
         );
         newIngredients = newIngredients.slice(0, length);
         return newIngredients;
@@ -42,7 +42,7 @@ function SearchCard({ loading, cocktailData }: Props) {
   }
 
   useEffect(() => {
-    if (!loading) {
+    if (!loading && cocktailData) {
       setCocktailIngredients(
         cutIngredients(parseIngredients(cocktailData), 4, "")
       );
