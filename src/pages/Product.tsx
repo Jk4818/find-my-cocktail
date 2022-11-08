@@ -130,7 +130,7 @@ function Product() {
           )}
         </div>
 
-        <div className="absolute left-0 right-0 mx-auto bottom-0 w-11/12 h-[32rem] p-10 flex flex-col text-left font-raleway bg-white rounded-2xl drop-shadow-main opacity-70 backdrop-blur-3xl filter z-10">
+        <div className="absolute left-0 right-0 mx-auto bottom-0 w-11/12 h-[32rem] p-10 flex flex-col text-left font-raleway bg-white/80 rounded-2xl drop-shadow-main backdrop-blur-sm filter z-10">
           <h1 className="font-bold font-merriweather text-3xl">
             {!loading ? cocktailData?.drinks?.[0].strDrink : <Skeleton />}
           </h1>
