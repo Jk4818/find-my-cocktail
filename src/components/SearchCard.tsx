@@ -62,10 +62,10 @@ function SearchCard({ loading, cocktailData }: Props) {
 
   return (
     <motion.div
-      initial={{ opacity: 0,  y: 50 }}
-      whileInView={{ opacity: 1,  y: 0 }}
-      transition={{ ease: "easeInOut" }}
-      viewport={{ once: true }}
+      // initial={{ opacity: 0,  y: 50 }}
+      // whileInView={{ opacity: 1,  y: 0 }}
+      // transition={{ ease: "easeInOut" }}
+      // viewport={{ once: true }}
       onClick={handleClick}
       className="w-full h-60 flex text-center font-raleway bg-white/70 rounded-2xl drop-shadow-main backdrop-blur-sm group hover:-translate-y-2 transition-all cursor-pointer"
     >
