@@ -11,10 +11,10 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
         <header className="fixed w-screen h-screen">
           <BlobAnimation />
         </header>
+        <Header />
 
         <Routes>
           <Route path="/" element={<Hero />} />
