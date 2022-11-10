@@ -7,6 +7,7 @@ import { Cocktail, Ingredients } from "../common/types";
 import { TiChevronRight } from "react-icons/ti";
 import { parseIngredients, cutIngredients } from "../common/helper";
 import { useNavigate } from "react-router-dom";
+import LazyLoad from "react-lazy-load";
 
 type Props = {
   loading: boolean;
@@ -48,19 +49,21 @@ function SearchCard({ loading, cocktailData }: Props) {
       className="w-full h-60 flex text-center font-raleway bg-white/70 rounded-2xl drop-shadow-main backdrop-blur-sm group hover:-translate-y-2 transition-all cursor-pointer"
     >
       <div className="mr-auto  h-full aspect-square drop-shadow-main">
-        {!loading ? (
-          <img
-            src={cocktailData?.strDrinkThumb}
-            alt="new"
-            className="w-full h-full rounded-xl object-cover"
-          />
-        ) : (
-          <Skeleton
-            className="h-full w-full"
-            height="100%"
-            borderRadius="0.75rem"
-          />
-        )}
+        <LazyLoad height={240}>
+          {!loading ? (
+            <img
+              src={cocktailData?.strDrinkThumb}
+              alt="new"
+              className="w-full h-full rounded-xl object-cover"
+            />
+          ) : (
+            <Skeleton
+              className="h-full w-full"
+              height="100%"
+              borderRadius="0.75rem"
+            />
+          )}
+        </LazyLoad>
       </div>
 
       <div className="w-full h-full p-4 pl-10 pt-10 flex flex-col gap-2 text-left">

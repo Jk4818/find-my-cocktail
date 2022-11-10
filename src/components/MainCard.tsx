@@ -6,6 +6,7 @@ import { Cocktail, Ingredients} from "../common/types";
 
 import { GoChevronRight, GoChevronLeft } from "react-icons/go";
 import { parseIngredients } from "../common/helper";
+import LazyLoad from "react-lazy-load";
 
 
 type Props = {
@@ -60,15 +61,17 @@ export default function MainCard({
   return (
     <div className="relative w-[30rem] h-full">
       <div className="mt-20 w-full aspect-square">
-        {!loading ? (
-          <img
-            src={cocktailData?.strDrinkThumb}
-            alt="new"
-            className="w-full h-full rounded-3xl object-contain drop-shadow-main"
-          />
-        ) : (
-          <Skeleton height="100%" className="z-0" borderRadius="1.5rem" />
-        )}
+        <LazyLoad height={480}>
+          {!loading ? (
+            <img
+              src={cocktailData?.strDrinkThumb}
+              alt="new"
+              className="w-full h-full rounded-3xl object-contain drop-shadow-main"
+            />
+          ) : (
+            <Skeleton height="100%" className="z-0" borderRadius="1.5rem" />
+          )}
+        </LazyLoad>
       </div>
 
       <div className="absolute left-0 right-0 mx-auto bottom-0 w-11/12 h-[32rem] p-10 flex flex-col text-left font-raleway bg-white/80 rounded-2xl drop-shadow-main backdrop-blur-sm filter z-10">
@@ -103,12 +106,14 @@ export default function MainCard({
             {!loading
               ? cocktailIngredients.map((item, index) => (
                   <li key={index} className="h-full flex flex-col">
-                    <div className="h-2/3 bg-gray-100 hover:bg-gray-200 transition-all rounded-2xl flex p-2">
-                      <img
-                        src={`https://www.thecocktaildb.com/images/ingredients/${item.ingredient}-Medium.png`}
-                        alt="new"
-                        className="w-full rounded-3xl object-cover drop-shadow-main"
-                      />
+                    <div className="h-2/3 bg-gray-100 hover:bg-gray-200 transition-all rounded-2xl flex py-2">
+                      <LazyLoad height="100%">
+                        <img
+                          src={`https://www.thecocktaildb.com/images/ingredients/${item.ingredient}-Small.png`}
+                          alt="new"
+                          className="w-[100px] h-[100px] rounded-3xl object-cover drop-shadow-main"
+                        />
+                      </LazyLoad>
                     </div>
                     <h3 className="w-full mt-2 h-max text-center font-semibold">
                       {item.measure} {item.ingredient}
