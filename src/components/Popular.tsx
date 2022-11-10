@@ -16,7 +16,7 @@ export default function Popular({}: Props) {
     function getProduct() {
       setLoading(true);
       fetch(
-        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=old`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -33,15 +33,17 @@ export default function Popular({}: Props) {
   }, []);
 
   return (
-    <div className='w-full px-4 pt-12 h-full bg-red-800 flex flex-wrap justify-between'>
-      
-      {!loading ? (
-            cocktailData?.drinks.map((drink, index) => (
-              <ListCard key={index} cocktailData={drink} loading={loading} />
-            ))
-        ) : (
-          <ListCard cocktailData={undefined} loading={loading} />
-        )}
+    <div className='w-full px-4'>
+      <h1 className='font-raleway text-4xl font-black'>Popular.</h1>
+      <ul className=' pt-20 h-max flex flex-wrap justify-between gap-14'>
+        {!loading ? (
+              cocktailData?.drinks.slice(0, 6).map((drink, index) => (
+                <ListCard key={index} cocktailData={drink} loading={loading} />
+              ))
+          ) : (
+            <ListCard cocktailData={undefined} loading={loading} />
+          )}
+      </ul>
     </div>
   )
 }

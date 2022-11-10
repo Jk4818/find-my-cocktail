@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { TiChevronRight } from "react-icons/ti";
 
+import { useNavigate } from "react-router-dom";
+
 import { Cocktail, Ingredients } from "../common/types";
 import { parseIngredients, cutIngredients } from "../common/helper";
 import Skeleton from "react-loading-skeleton";
@@ -11,6 +13,7 @@ type Props = {
 };
 
 function ListCard({ loading, cocktailData }: Props) {
+  const navigate = useNavigate();
   const [cocktailIngredients, setCocktailIngredients] = useState<Ingredients[]>(
     []
   );
@@ -29,10 +32,15 @@ function ListCard({ loading, cocktailData }: Props) {
     }
   }, []);
 
+  function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+    e.preventDefault();
+    navigate(`/product/${cocktailData?.idDrink}`);
+  }
+
   return (
-    <div className="w-72 h-80">
-      <div className="w-full p-4 aspect-square flex flex-col gap-4 text-center font-raleway bg-white rounded-2xl drop-shadow-main bg-opacity-70 group hover:-translate-y-2 transition-all cursor-pointer">
-        <div className="mx-auto -mt-14 w-40 aspect-square">
+    <div className="w-48 lg:w-72 h-52 lg:h-80" onClick={handleClick}>
+      <div className="w-full p-4 aspect-square flex flex-col gap-4 text-center font-raleway bg-white/80 backdrop-blur-sm rounded-2xl drop-shadow-main  group hover:-translate-y-2 transition-all cursor-pointer">
+        <div className="mx-auto -mt-14 w-28 lg:w-40 aspect-square">
           <img
             src={cocktailData?.strDrinkThumb}
             alt="new"
