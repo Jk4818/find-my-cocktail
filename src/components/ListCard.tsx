@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Cocktail, Ingredients } from "../common/types";
 import { parseIngredients, cutIngredients } from "../common/helper";
 import Skeleton from "react-loading-skeleton";
+import LazyLoad from "react-lazy-load";
 
 type Props = {
   loading: boolean;
@@ -40,12 +41,18 @@ function ListCard({ loading, cocktailData }: Props) {
   return (
     <div className="w-72 h-72 lg:w-72 lg:h-72" onClick={handleClick}>
       <div className="w-full h-full p-4 aspect-square flex flex-col gap-4 text-center font-raleway bg-white/80 backdrop-blur-sm rounded-2xl drop-shadow-main  group hover:-translate-y-2 transition-all cursor-pointer">
-        <div className="mx-auto -mt-14 w-40 lg:w-40 aspect-square">
-          <img
-            src={cocktailData?.strDrinkThumb}
-            alt="new"
-            className="w-full h-full rounded-xl object-cover drop-shadow-main"
-          />
+        <div className="mx-auto -mt-14 w-40 aspect-square">
+          <LazyLoad height={160}>
+            {!loading ? (
+              <img
+                src={cocktailData?.strDrinkThumb}
+                alt={cocktailData?.idDrink}
+                className="w-full h-full rounded-xl object-cover drop-shadow-main"
+              />
+            ) : (
+              <Skeleton height="100%" className="z-0" borderRadius="0.75rem" />
+            )}
+          </LazyLoad>
         </div>
         <h1 className="font-extrabold">
           {!loading ? cocktailData?.strDrink : <Skeleton />}
