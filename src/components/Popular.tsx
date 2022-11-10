@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import ListCard from './ListCard'
 
-import { Cocktail, Ingredients } from "../common/types";
+import { Drinks } from "../common/types";
 
 type Props = {
 };
 
 export default function Popular({}: Props) {
 
-  const [cocktailData, setCocktailData] = useState<Cocktail>();
+  const [cocktailData, setCocktailData] = useState<Drinks>();
   const [loading, setLoading] = useState(true);
 
   
@@ -16,11 +16,12 @@ export default function Popular({}: Props) {
     function getProduct() {
       setLoading(true);
       fetch(
-        `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailId}`
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`
       )
         .then((res) => res.json())
         .then((data) => {
-          setCocktailData(data.drinks[0]);
+          console.log(data);
+          setCocktailData(data);
           setLoading(false);
         })
         .catch((err) => {
@@ -32,9 +33,15 @@ export default function Popular({}: Props) {
   }, []);
 
   return (
-    <div className='w-1/2 h-full bg-red-800'>
+    <div className='w-full px-4 pt-12 h-full bg-red-800 flex flex-wrap justify-between'>
       
-      <ListCard loading={loading} cocktailData={cocktailData}/>
+      {!loading ? (
+            cocktailData?.drinks.map((drink, index) => (
+              <ListCard key={index} cocktailData={drink} loading={loading} />
+            ))
+        ) : (
+          <ListCard cocktailData={undefined} loading={loading} />
+        )}
     </div>
   )
 }

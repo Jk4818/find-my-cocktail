@@ -6,7 +6,7 @@ import Popular from "../components/Popular";
 
 function Hero() {
   return (
-    <div className="relative w-screen h-screen flex justify-center overflow-hidden">
+    <div className="relative w-screen h-screen flex justify-center overflow-x-hidden">
       {/* <Title /> */}
       <Popular  />
 
