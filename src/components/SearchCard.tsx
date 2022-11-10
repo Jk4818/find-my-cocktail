@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import { Cocktail, Ingredients } from "../common/types";
 
 import { TiChevronRight } from "react-icons/ti";
-import { parseIngredients } from "../common/helper";
-import { Navigate, useNavigate } from "react-router-dom";
+import { parseIngredients, cutIngredients } from "../common/helper";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   loading: boolean;
@@ -22,28 +22,6 @@ function SearchCard({ loading, cocktailData }: Props) {
   const [cocktailFeaturedIngredients, setCocktailFeaturedIngredients] =
     useState<Ingredients[]>([]);
 
-  function cutIngredients(
-    ingredients: Ingredients[],
-    length: number,
-    type: string
-  ) {
-    if (ingredients.length > length) {
-      if (type === "featured") {
-        let newIngredients = ingredients.filter(
-          (item) => !(item.ingredient.length > 9)
-        );
-        newIngredients = newIngredients.slice(0, length);
-        return newIngredients;
-      } else {
-        let newIngredients = ingredients.slice(0, length - 1);
-        newIngredients.push({ ingredient: "...", measure: "" });
-        return newIngredients;
-      }
-    } else {
-      return ingredients;
-    }
-  }
-
   useEffect(() => {
     if (!loading && cocktailData) {
       setCocktailIngredients(
@@ -55,7 +33,7 @@ function SearchCard({ loading, cocktailData }: Props) {
     }
   }, []);
 
-  function handleClick(e : React.MouseEvent<HTMLDivElement, MouseEvent>) {
+  function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     e.preventDefault();
     navigate(`/product/${cocktailData?.idDrink}`);
   }

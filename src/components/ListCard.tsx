@@ -1,7 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TiChevronRight } from "react-icons/ti";
 
-function ListCard() {
+import { Cocktail, Ingredients } from "../common/types";
+import { parseIngredients, cutIngredients } from "../common/helper";
+
+
+type Props = {
+  loading: boolean;
+  cocktailData: Cocktail | undefined;
+};
+
+function ListCard({loading, cocktailData}: Props) {
+  
+  const [cocktailIngredients, setCocktailIngredients] = useState<Ingredients[]>(
+    []
+  );
+  
+  const [cocktailFeaturedIngredients, setCocktailFeaturedIngredients] = useState<Ingredients[]>([]);
+
+  useEffect(() => {
+    if (!loading && cocktailData) {
+      setCocktailIngredients(
+        cutIngredients(parseIngredients(cocktailData), 4, "")
+      );
+      setCocktailFeaturedIngredients(
+        cutIngredients(parseIngredients(cocktailData), 2, "featured")
+      );
+    }
+  }, []);
+
   return (
     <div className="w-72 h-80">
       <div
