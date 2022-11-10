@@ -38,9 +38,9 @@ function ListCard({ loading, cocktailData }: Props) {
   }
 
   return (
-    <div className="w-48 lg:w-72 h-52 lg:h-80" onClick={handleClick}>
-      <div className="w-full p-4 aspect-square flex flex-col gap-4 text-center font-raleway bg-white/80 backdrop-blur-sm rounded-2xl drop-shadow-main  group hover:-translate-y-2 transition-all cursor-pointer">
-        <div className="mx-auto -mt-14 w-28 lg:w-40 aspect-square">
+    <div className="w-72 h-72 lg:w-72 lg:h-72" onClick={handleClick}>
+      <div className="w-full h-full p-4 aspect-square flex flex-col gap-4 text-center font-raleway bg-white/80 backdrop-blur-sm rounded-2xl drop-shadow-main  group hover:-translate-y-2 transition-all cursor-pointer">
+        <div className="mx-auto -mt-14 w-40 lg:w-40 aspect-square">
           <img
             src={cocktailData?.strDrinkThumb}
             alt="new"

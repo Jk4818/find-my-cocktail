@@ -10,7 +10,7 @@ import Search from "./pages/Search";
 
 function App() {
   return (
-    <div className="App ">
+    <div className="App">
       <Router>
         <header className="fixed w-screen h-screen">
           <BlobAnimation />

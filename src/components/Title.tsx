@@ -7,7 +7,7 @@ function Title() {
   const transition = { duration: 0.5, ease: "easeInOut" }
 
   return (
-    <div className="relative w-[40rem] h-max">
+    <div className="relative w-[40rem] h-max 2xl:scale-[0.6] 3xl:scale-100 origin-left">
       <h1 className="font-raleway font-black leading-tight tracking-wide text-7xl text-black">
         Cocktails Made Easy.
       </h1>
