@@ -5,9 +5,10 @@ type Props = {}
 
 export default function NotFound({ }: Props) {
     return (
-        <div className='flex w-full h-full items-center justify-center flex-col'>
-            404
-            <NoResults />
+        <div className='relative flex w-full h-90 items-center justify-center flex-col font-bold text-3xl'>
+            
+            We couldn't find that page.
+            
         </div>
     )
 }
