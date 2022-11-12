@@ -5,7 +5,7 @@ type Props = {}
 
 export default function NotFound({ }: Props) {
     return (
-        <div>
+        <div className='flex w-full h-full items-center justify-center flex-col'>
             404
             <NoResults />
         </div>
