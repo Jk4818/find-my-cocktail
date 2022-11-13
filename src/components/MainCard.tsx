@@ -61,7 +61,7 @@ export default function MainCard({
   return (
     <div className="relative w-[30rem] h-full">
       <div className="mt-20 w-full aspect-square">
-        <LazyLoad height={480}>
+        <LazyLoad height={480} className="">
           {!loading ? (
             <img
               src={cocktailData?.strDrinkThumb}
@@ -106,12 +106,12 @@ export default function MainCard({
             {!loading
               ? cocktailIngredients.map((item, index) => (
                   <li key={index} className="h-full flex flex-col">
-                    <div className="h-2/3 bg-gray-100 hover:bg-gray-200 transition-all rounded-2xl flex py-2">
+                    <div className="h-2/3 bg-gray-100 hover:bg-gray-200 transition-all rounded-2xl flex items-center justify-center py-2">
                       <LazyLoad height="100%">
                         <img
                           src={`https://www.thecocktaildb.com/images/ingredients/${item.ingredient}-Small.png`}
                           alt="new"
-                          className="w-[100px] h-[100px] rounded-3xl object-cover drop-shadow-main"
+                          className="h-full p-4 object-cover drop-shadow-main"
                         />
                       </LazyLoad>
                     </div>
