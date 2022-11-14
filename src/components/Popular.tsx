@@ -37,7 +37,7 @@ export default function Popular({}: Props) {
       <h1 className='w-full md:px-16 lg:pl-0 font-raleway text-4xl font-black'>Popular.</h1>
       <div className=' pt-20 h-max flex flex-wrap justify-center lg:justify-between gap-14'>
         {!loading ? (
-              cocktailData?.drinks.slice(0, 6).map((drink, index) => (
+              cocktailData?.drinks.slice(0, 3).map((drink, index) => (
                 <ListCard key={index} cocktailData={drink} loading={loading} />
               ))
           ) : (

@@ -51,6 +51,7 @@ export default function MainCard({
   const [cocktailIngredients, setCocktailIngredients] = useState<Ingredients[]>(
     []
   );
+  
 
 
   useEffect(() => {
@@ -112,6 +113,8 @@ export default function MainCard({
                           src={`https://www.thecocktaildb.com/images/ingredients/${item.ingredient}-Small.png`}
                           alt="new"
                           className="h-full p-4 object-cover drop-shadow-main"
+                          width="100px"
+                          height="150px"
                         />
                       </LazyLoad>
                     </div>
