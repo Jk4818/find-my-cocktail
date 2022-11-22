@@ -37,7 +37,7 @@ export default function Search({}: Props) {
   }, []);
 
   return (
-    <div className="w-screen h-screen p-4 flex flex-col gap-20 items-center overflow-x-hidden">
+    <div className="w-screen p-4 flex flex-col gap-20 items-center">
       <h1 className="font-raleway font-black text-4xl text-black z-10 w-[35rem] text-left">
         Browse: {titleCase(searchParams.get("q"))}
       </h1>
