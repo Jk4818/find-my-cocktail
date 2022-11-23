@@ -12,9 +12,9 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* <div className="fixed w-screen h-screen">
+        <div className="fixed w-screen h-screen">
           <BlobAnimation />
-        </div> */}
+        </div>
 
         <Layout>
           <Routes>
