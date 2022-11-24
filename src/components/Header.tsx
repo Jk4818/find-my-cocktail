@@ -8,13 +8,17 @@ type Props = {}
 
 export default function Header({}: Props) {
 
+  //home usestate
+  const [home, setHome] = React.useState(false);
   const location = useLocation();
-  useEffect(() => {
-    if(location.pathname === "/") {
 
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setHome(true);
+    } else {
+      setHome(false);
     }
-      
-  }, [])
+  }, [location]);
   
   
   return (
@@ -22,7 +26,7 @@ export default function Header({}: Props) {
       <div className='absolute px-8 md:px-20 w-full'>
         <Logo />
       </div>
-      <div className='2xl:hidden pl-16'>
+      <div className={`${home && `2xl:hidden pl-16`}`}>
         <SearchBar />
       </div>
     </div>
