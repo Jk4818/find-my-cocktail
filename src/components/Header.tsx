@@ -26,7 +26,7 @@ export default function Header({}: Props) {
       <div className='absolute px-8 md:px-20 w-full'>
         <Logo />
       </div>
-      <div className={`${home && `2xl:hidden pl-16`}`}>
+      <div className={`${home && `2xl:hidden pl-16`} w-96`}>
         <SearchBar />
       </div>
     </div>
