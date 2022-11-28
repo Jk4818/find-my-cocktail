@@ -42,17 +42,17 @@ function ListCard({ loading, cocktailData }: Props) {
     <div className="w-72 h-72 lg:w-72 lg:h-72" onClick={handleClick}>
       <div className="w-full h-full p-4 aspect-square flex flex-col gap-4 text-center font-raleway bg-white/80 backdrop-blur-sm rounded-2xl drop-shadow-main  group hover:-translate-y-2 transition-all cursor-pointer">
         <div className="mx-auto -mt-14 w-40 aspect-square">
-          <LazyLoad height={160}>
-            {!loading ? (
+          {!loading ? (
+            <LazyLoad height={160}>
               <img
                 src={cocktailData?.strDrinkThumb}
                 alt={cocktailData?.idDrink}
                 className="w-full h-full rounded-xl object-cover drop-shadow-main"
               />
-            ) : (
-              <Skeleton height="100%" className="z-0" borderRadius="0.75rem" />
-            )}
-          </LazyLoad>
+            </LazyLoad>
+          ) : (
+            <Skeleton height="100%" className="z-0" borderRadius="0.75rem" />
+          )}
         </div>
         <h1 className="font-extrabold">
           {!loading ? cocktailData?.strDrink : <Skeleton />}
@@ -64,18 +64,18 @@ function ListCard({ loading, cocktailData }: Props) {
         <ul className="mt-auto flex gap-4 items-center">
           {!loading
             ? cocktailFeaturedIngredients.map((item, index) => (
-                <li
-                  key={index}
-                  className="w-max h-max text-xs font-extrabold bg-white hover:bg-gray-100 transition-all rounded-lg px-4 p-2"
-                >
-                  {item.ingredient}
-                </li>
-              ))
+              <li
+                key={index}
+                className="w-max h-max text-xs font-extrabold bg-white hover:bg-gray-100 transition-all rounded-lg px-4 p-2"
+              >
+                {item.ingredient}
+              </li>
+            ))
             : Array.from(Array(3), (e, i) => (
-                <li key={i} className="w-10 h-4">
-                  <Skeleton />
-                </li>
-              ))}
+              <li key={i} className="w-10 h-4">
+                <Skeleton />
+              </li>
+            ))}
 
           <li className=" ml-auto  ">
             <TiChevronRight className="text-2xl group-hover:animate-bounce-x transition-all" />
