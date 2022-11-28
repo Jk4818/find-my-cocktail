@@ -16,7 +16,7 @@ function SearchBar() {
       <div className='relative w-full h-10 pl-4 pr-2 gap-2 flex items-center rounded-lg text-black bg-white focus-within:drop-shadow-main border-2 outline-none focus-within:border-blue-300 transition-all'>
         <input type="text" placeholder="Your next cocktail here..." name='q' onChange={handleChange} className='h-full w-full font-raleway text-sm outline-none appearance-none'></input>
         <button type='submit' aria-label='search-submit'>
-          <AiOutlineSearch className='text-2xl'/>
+          <AiOutlineSearch className='text-3xl sm:text-2xl'/>
         </button>
       </div>
     </form>

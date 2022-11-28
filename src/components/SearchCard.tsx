@@ -104,7 +104,9 @@ function SearchCard({ loading, cocktailData }: Props) {
                 </li>
               ))}
 
-          <TiChevronRight className="text-2xl ml-auto  group-hover:animate-bounce-x transition-all" />
+          <li className="ml-auto  ">
+            <TiChevronRight className="text-2xl group-hover:animate-bounce-x transition-all" />
+          </li>
         </ul>
       </div>
     </motion.div>
