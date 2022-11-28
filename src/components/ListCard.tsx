@@ -8,6 +8,8 @@ import { parseIngredients, cutIngredients } from "../common/helper";
 import Skeleton from "react-loading-skeleton";
 import LazyLoad from "react-lazy-load";
 
+import "../styles/Lazyload.css";
+
 type Props = {
   loading: boolean;
   cocktailData: Cocktail | undefined;
