@@ -19,7 +19,7 @@ module.exports = {
         ]
       },
       colors: {
-        'web-gray': '#787878'
+        'web-gray': '#333333'
       },
       animation: {
         blob: "blob 20s infinite",
