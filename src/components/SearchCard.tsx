@@ -52,7 +52,7 @@ function SearchCard({ loading, cocktailData }: Props) {
         <LazyLoad height={240}>
           {!loading ? (
             <img
-              src={cocktailData?.strDrinkThumb}
+              src={cocktailData?.strDrinkThumb + "/preview"}
               alt="new"
               className="w-full h-full rounded-xl object-cover"
             />

@@ -47,7 +47,7 @@ function ListCard({ loading, cocktailData }: Props) {
           {!loading ? (
             <LazyLoad height={160}>
               <img
-                src={cocktailData?.strDrinkThumb}
+                src={cocktailData?.strDrinkThumb + "/preview"}
                 alt={cocktailData?.idDrink}
                 className="w-full h-full rounded-xl object-cover drop-shadow-main"
               />
