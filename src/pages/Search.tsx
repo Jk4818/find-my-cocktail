@@ -42,7 +42,7 @@ export default function Search({}: Props) {
         Browse: {titleCase(searchParams.get("q"))}
       </h1>
 
-      <div className=" w-[35rem] flex flex-col gap-10">
+      <div className=" w-5/6 md:w-[35rem] flex flex-col gap-10">
         {!loading ? (
           searchData?.drinks !== null ? (
             searchData?.drinks.map((drink, index) => (

@@ -46,10 +46,10 @@ function SearchCard({ loading, cocktailData }: Props) {
       // transition={{ ease: "easeInOut" }}
       // viewport={{ once: true }}
       onClick={handleClick}
-      className="w-full h-60 flex text-center font-raleway bg-white/70 rounded-2xl drop-shadow-main backdrop-blur-sm group hover:-translate-y-2 transition-all cursor-pointer"
+      className="w-full md:w-full ml-4 md:ml-0 h-60 flex text-center font-raleway bg-white/70 rounded-2xl drop-shadow-main backdrop-blur-sm group hover:-translate-y-2 transition-all cursor-pointer"
     >
-      <div className="mr-auto  h-full aspect-square drop-shadow-main">
-        <LazyLoad height={240}>
+      <div className="mr-auto h-1/2 md:h-full -ml-10 md:-ml-0 my-auto aspect-square drop-shadow-main">
+        <LazyLoad height={"100%"}>
           {!loading ? (
             <img
               src={cocktailData?.strDrinkThumb + "/preview"}
