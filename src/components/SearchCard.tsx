@@ -66,7 +66,7 @@ function SearchCard({ loading, cocktailData }: Props) {
         </LazyLoad>
       </div>
 
-      <div className="w-full h-full p-4 pl-10 pt-10 flex flex-col gap-2 text-left">
+      <div className="w-full h-full p-4 md:pl-10 pt-10 flex flex-col gap-2 text-left">
         <h1 className="font-extrabold">
           {!loading ? cocktailData?.strDrink : <Skeleton />}
         </h1>
@@ -93,7 +93,7 @@ function SearchCard({ loading, cocktailData }: Props) {
             ? cocktailFeaturedIngredients.map((item, index) => (
                 <li
                   key={index}
-                  className="w-max h-max text-xs font-extrabold bg-white hover:bg-gray-100 transition-all rounded-lg px-4 p-2"
+                  className="w-max h-max text-xs font-extrabold bg-white hover:bg-gray-100 transition-all rounded-md md:rounded-lg md:px-4 p-1 md:p-2"
                 >
                   {item.ingredient}
                 </li>
